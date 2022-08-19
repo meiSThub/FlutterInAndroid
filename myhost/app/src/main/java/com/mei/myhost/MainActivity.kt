@@ -14,7 +14,7 @@ class MainActivity : AppCompatActivity() {
     }
 
     fun toFlutterPage(view: View) {
-        startActivity(FlutterActivity.withNewEngine().initialRoute("/?").build(this))
+        startActivity(FlutterActivity.withNewEngine().initialRoute("/").build(this))
     }
 
     fun toFlutterFragment(view: View) {
