@@ -1,25 +1,11 @@
-
-pluginManagement {
-    repositories {
-        gradlePluginPortal()
-        google()
-        mavenCentral()
-    }
-}
-dependencyResolutionManagement {
-    repositoriesMode.set(RepositoriesMode.FAIL_ON_PROJECT_REPOS)
-    repositories {
-        google()
-        mavenCentral()
-    }
-}
 rootProject.name = "MyHost"
 include ':app'
 
+// 源码依赖 flutter module
 setBinding(new Binding([gradle: this]))
 evaluate(new File(
         settingsDir.parentFile,
-        "${rootProject.name}/myflutter/.android/include_flutter.groovy"
+        "/flutter_module/.android/include_flutter.groovy"
 ))
-// include ':myflutter'
-// project(':myflutter').projectDir = new File('../myflutter')
+// include ':flutter_module'
+// project(':flutter_module').projectDir = new File("${settingsDir.parentFile.getAbsolutePath()}/flutter_module")
