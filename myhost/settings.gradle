@@ -7,5 +7,5 @@ evaluate(new File(
         settingsDir.parentFile,
         "/flutter_module/.android/include_flutter.groovy"
 ))
-// include ':flutter_module'
-// project(':flutter_module').projectDir = new File("${settingsDir.parentFile.getAbsolutePath()}/flutter_module")
+include ':flutter_module'
+project(':flutter_module').projectDir = new File("${settingsDir.parentFile.getAbsolutePath()}/flutter_module")
