@@ -5,6 +5,7 @@ import com.mei.myhost.engine.plugin.MyFlutterPlugin
 import com.mei.myhost.engine.utils.FlutterUtils
 import io.flutter.embedding.engine.FlutterEngine
 import io.flutter.embedding.engine.FlutterEngineCache
+import io.flutter.embedding.engine.dart.DartExecutor
 import io.flutter.embedding.engine.dart.DartExecutor.DartEntrypoint
 import io.flutter.view.FlutterMain
 
@@ -44,11 +45,12 @@ object FlutterInit {
         if (!engine.dartExecutor.isExecutingDart) {
             // Pre-warm the cached FlutterEngine.
             engine.navigationChannel.setInitialRoute("/")
-            engine.dartExecutor.executeDartEntrypoint(
-                DartEntrypoint(
-                    FlutterMain.findAppBundlePath(), "main"
-                )
-            )
+            // engine.dartExecutor.executeDartEntrypoint(
+            //     DartEntrypoint(
+            //         FlutterMain.findAppBundlePath(), "main"
+            //     )
+            // )
+            engine.dartExecutor.executeDartEntrypoint(DartEntrypoint.createDefault())
         }
         // FlutterEngine 创建成功
         callback.invoke(engine)
