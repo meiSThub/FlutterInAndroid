@@ -22,9 +22,8 @@ object CommonMethodChannel {
 
     private const val FLUTTER_METHOD_COMMON_ID = "method_channel_common"
     private val methodChannel by lazy {
-        MethodChannel(FlutterInit.getEngine()?.dartExecutor, FLUTTER_METHOD_COMMON_ID)
+        MethodChannel(FlutterInit.getEngine()!!.dartExecutor, FLUTTER_METHOD_COMMON_ID)
     }
-
 
     fun initMethodCallHandler() {
         methodChannel.setMethodCallHandler { call, result ->
@@ -52,7 +51,7 @@ object CommonMethodChannel {
                 IntentFilter(Intent.ACTION_BATTERY_CHANGED)
             )
             intent!!.getIntExtra(BatteryManager.EXTRA_LEVEL, -1) * 100 /
-                    intent.getIntExtra(BatteryManager.EXTRA_SCALE, -1)
+                intent.getIntExtra(BatteryManager.EXTRA_SCALE, -1)
         }
         return batteryLevel
     }
